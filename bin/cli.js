@@ -68,7 +68,8 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
                 'black-forest-labs/FLUX.1-dev',
                 'stabilityai/stable-diffusion-xl-base-1.0',
                 'stabilityai/stable-diffusion-2-1',
-                'runwayml/stable-diffusion-v1-5'
+                'runwayml/stable-diffusion-v1-5',
+                'ayrisdev/mobile-ui-design'
               ],
               default: 'stabilityai/stable-diffusion-xl-base-1.0',
             },

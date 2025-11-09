@@ -16,6 +16,7 @@ on standby, ready to create custom images whenever you need them.
 
 - 🖼️ Creating unique artwork for projects
 - 📱 Designing social media content
+- 💻 Mockup UI/UX designs for websites, mobile apps, and dashboards
 - 🎮 Generating game assets or concept art
 - 📚 Illustrating stories or presentations
 - 🎨 Exploring creative ideas visually
@@ -76,6 +77,13 @@ Just chat with Claude naturally! Here are some examples:
 - *"Generate a logo design with a geometric phoenix, minimalist style, blue and orange colors"*
 - *"Make a fantasy landscape with floating islands and waterfalls at sunset"*
 
+### UI/UX Design Examples:
+
+- *"Design a modern login screen for a mobile banking app"*
+- *"Create a dashboard layout for a fitness tracking website"*
+- *"Generate an e-commerce product page UI design"*
+- *"Make a dark mode settings screen for an iOS app"*
+
 ### Choose Different Styles:
 
 - *"Create a watercolor painting of a garden"*
@@ -106,22 +114,25 @@ Just chat with Claude naturally! Here are some examples:
 
 Want a specific quality level? Just ask Claude naturally! No code needed.
 
-| Quality Level            | How to Ask                                      | Generation Time | Best For                                          |
-|--------------------------|-------------------------------------------------|-----------------|---------------------------------------------------|
-| 🏆 **Highest Quality**   | "using FLUX", "highest quality", "best quality" | 30-60 seconds   | Professional work, detailed artwork, photorealism |
-| ⚡ **Balanced** (default) | Just describe what you want                     | 15-30 seconds   | General use, great quality                        |
-| 🚀 **Fast**              | "quick image", "fast", "draft"                  | 10-20 seconds   | Iterations, concept art                           |
-| 💨 **Fastest**           | "fastest", "very quick", "rough sketch"         | 5-10 seconds    | Rapid testing, simple images                      |
+| Quality Level            | How to Ask                                         | Generation Time | Best For                                           |
+|--------------------------|----------------------------------------------------|-----------------|----------------------------------------------------|
+| 🏆 **Highest Quality**   | "using FLUX", "highest quality", "best quality"    | 30-60 seconds   | Professional work, detailed artwork, photorealism  |
+| 📱 **UI/UX Design**      | "UI design", "mobile app screen", "website layout" | 15-30 seconds   | App interfaces, website mockups, dashboard designs |
+| ⚡ **Balanced** (default) | Just describe what you want                        | 15-30 seconds   | General use, great quality                         |
+| 🚀 **Fast**              | "quick image", "fast", "draft"                     | 10-20 seconds   | Iterations, concept art                            |
+| 💨 **Fastest**           | "fastest", "very quick", "rough sketch"            | 5-10 seconds    | Rapid testing, simple images                       |
 
 **Examples:**
 
 - *"Generate a portrait using FLUX.1"* → Highest quality
+- *"Create a mobile app login screen UI design"* → UI/UX model
+- *"Design a modern dashboard layout for an analytics website"* → UI/UX model
 - *"Quick sketch of a coffee shop logo"* → Fast model
 - *"Create a sunset over mountains"* → Default (balanced)
 - *"Make the fastest possible image of a cat"* → Fastest model
 
-**Pro Tip:** Start with default for most images. Use FLUX when you need professional quality. Use fast models when
-iterating on ideas.
+**Pro Tip:** Start with default for most images. Use FLUX when you need professional quality. Use the UI design model
+for app/website mockups. Use fast models when iterating on ideas.
 
 ---
 
@@ -324,6 +335,7 @@ Cursor, VSCode, and environment variables.
 
 - `stabilityai/stable-diffusion-xl-base-1.0` (default)
 - `black-forest-labs/FLUX.1-dev` (highest quality)
+- `ayrisdev/mobile-ui-design` (UI/UX design)
 - `stabilityai/stable-diffusion-2-1` (fast)
 - `runwayml/stable-diffusion-v1-5` (fastest)
 
