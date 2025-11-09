@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Netlify
+.netlify/
+netlify/
+
+# Environment variables
+.env
+.env.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build output
+dist/
+build/
+
+# Claude Code local settings
+.claude/settings.local.json

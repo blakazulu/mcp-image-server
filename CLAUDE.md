@@ -8,19 +8,46 @@ This is an MCP (Model Context Protocol) server that provides image generation ca
 
 ## Architecture
 
-This project will implement an MCP server with the following components:
+This MCP server is implemented as a Netlify Function with the following components:
 
-- **MCP Server Implementation**: Handles protocol communication and tool registration
-- **Image Generation Tools**: Provides various image generation and manipulation capabilities
-- **Tool Handlers**: Process requests and return generated images or image data
+- **MCP Server Implementation** (`netlify/functions/mcp.mjs`): Handles HTTP-based MCP protocol communication
+- **Image Generation Tool**: Uses Google Imagen 3.0 for text-to-image generation
+- **API Key Management**: Secure API key handling via HTTP headers
+- **Error Handling**: Comprehensive error messages for common failure scenarios
+
+## Project Structure
+
+```
+mcp-image-generator/
+├── netlify/
+│   └── functions/
+│       └── mcp.mjs          # Main MCP server function
+├── public/
+│   └── index.html           # Landing page with documentation
+├── netlify.toml             # Netlify configuration
+├── package.json             # Dependencies and scripts
+└── README.md                # User documentation
+```
 
 ## Development Commands
 
-(To be added as the project develops)
+```bash
+npm install          # Install dependencies
+npm run dev          # Run locally with Netlify CLI
+npm run deploy       # Deploy to Netlify
+```
 
 ## Key Considerations
 
-- MCP servers communicate via JSON-RPC over stdio
-- Tools must be properly registered and conform to the MCP tool specification
-- Image data should be handled efficiently (base64 encoding for transmission, proper MIME types)
-- Error handling should provide clear feedback when image generation fails
+- MCP server uses HTTP transport (not stdio) for Netlify Functions compatibility
+- API keys are passed via `x-google-api-key` header for security
+- Images are returned as base64-encoded data URIs
+- Supports aspect ratio control (1:1, 16:9, 9:16, 4:3, 3:4)
+- Provides detailed error messages for API key issues, quota limits, and safety filters
+
+## Installation Command
+
+Users can install this MCP server with:
+```bash
+claude mcp add image-generator https://image-generator-mcp.netlify.app/mcp
+```

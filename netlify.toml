@@ -1,0 +1,11 @@
+[build]
+  publish = "public"
+  functions = "netlify/functions"
+
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/mcp"
+  status = 200
+
+[functions]
+  node_bundler = "esbuild"

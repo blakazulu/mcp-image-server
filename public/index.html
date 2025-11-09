@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Generator MCP Server</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #333;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 15px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Image Generator MCP Server</h1>
+
+    <p>This is an MCP (Model Context Protocol) server that generates images from text prompts using Google Imagen.</p>
+
+    <div class="info-box">
+        <strong>Installation:</strong>
+        <pre><code>claude mcp add image-generator https://image-generator-mcp.netlify.app/mcp</code></pre>
+    </div>
+
+    <h2>Configuration</h2>
+    <p>You'll need to configure your Google API key to use this service. Get your API key from the <a href="https://aistudio.google.com/app/apikey" target="_blank">Google AI Studio</a>.</p>
+
+    <h2>Available Tools</h2>
+    <ul>
+        <li><strong>generate_image</strong> - Generate an image from a text prompt
+            <ul>
+                <li><code>prompt</code> (required): The text description of the image to generate</li>
+                <li><code>negativePrompt</code> (optional): What to avoid in the generated image</li>
+                <li><code>aspectRatio</code> (optional): Image aspect ratio (1:1, 16:9, 9:16, 4:3, 3:4)</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>Example Usage</h2>
+    <p>After installation, you can use prompts like:</p>
+    <ul>
+        <li>"Generate an image of a sunset over mountains"</li>
+        <li>"Create an image of a futuristic city with flying cars"</li>
+        <li>"Make an image of a cute robot playing with a cat"</li>
+    </ul>
+
+    <h2>Error Handling</h2>
+    <p>The server provides detailed error messages for common issues:</p>
+    <ul>
+        <li>Invalid API key</li>
+        <li>API quota exceeded</li>
+        <li>Safety filters triggered</li>
+        <li>General generation errors</li>
+    </ul>
+</body>
+</html>

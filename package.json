@@ -1,0 +1,27 @@
+{
+  "name": "mcp-image-generator",
+  "version": "1.0.0",
+  "description": "MCP server for generating images from text prompts using Google Imagen",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "netlify dev",
+    "build": "echo 'No build step needed'",
+    "deploy": "netlify deploy --prod"
+  },
+  "keywords": [
+    "mcp",
+    "image-generation",
+    "google-imagen",
+    "ai"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "@modelcontextprotocol/sdk": "^1.0.4"
+  },
+  "devDependencies": {
+    "netlify-cli": "^17.36.4"
+  }
+}
