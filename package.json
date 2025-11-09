@@ -1,11 +1,11 @@
 {
-  "name": "mcp-image-generator",
+  "name": "mcp-hf-images",
   "version": "1.0.0",
   "description": "MCP server for generating images from text prompts using HuggingFace (Stable Diffusion, FLUX, etc.)",
   "main": "index.js",
   "type": "module",
   "bin": {
-    "mcp-image-generator": "./bin/cli.js"
+    "mcp-hf-images": "./bin/cli.js"
   },
   "scripts": {
     "start": "node bin/cli.js"

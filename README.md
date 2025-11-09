@@ -19,7 +19,7 @@ A Model Context Protocol (MCP) server that generates images from text prompts us
 Install the MCP server with a single command:
 
 ```bash
-claude mcp add image-generator -- npx -y mcp-image-generator --api-key YOUR_HF_TOKEN
+claude mcp add image-generator -- npx -y mcp-hf-images --api-key YOUR_HF_TOKEN
 ```
 
 Replace `YOUR_HF_TOKEN` with your HuggingFace token.
@@ -38,7 +38,7 @@ Replace `YOUR_HF_TOKEN` with your HuggingFace token.
 If you prefer to configure later or use environment variables:
 
 ```bash
-claude mcp add image-generator -- npx -y mcp-image-generator
+claude mcp add image-generator -- npx -y mcp-hf-images
 ```
 
 Then set the `HF_TOKEN` environment variable in your MCP configuration.
@@ -133,7 +133,7 @@ For other MCP clients (Cursor, VSCode, etc.), you can configure manually:
   "mcpServers": {
     "image-generator": {
       "command": "npx",
-      "args": ["-y", "mcp-image-generator", "--api-key", "YOUR_HF_TOKEN"]
+      "args": ["-y", "mcp-hf-images", "--api-key", "YOUR_HF_TOKEN"]
     }
   }
 }
@@ -146,7 +146,7 @@ For other MCP clients (Cursor, VSCode, etc.), you can configure manually:
   "mcpServers": {
     "image-generator": {
       "command": "npx",
-      "args": ["-y", "mcp-image-generator"],
+      "args": ["-y", "mcp-hf-images"],
       "env": {
         "HF_TOKEN": "YOUR_HF_TOKEN"
       }
