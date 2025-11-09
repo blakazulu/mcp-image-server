@@ -1,7 +1,7 @@
 {
   "name": "mcp-hf-images",
-  "version": "1.0.3",
-  "description": "MCP server for generating images from text prompts using HuggingFace (Stable Diffusion, FLUX, etc.)",
+  "version": "1.1.0",
+  "description": "MCP server for generating images from text prompts using HuggingFace (Stable Diffusion, FLUX, logo design, and more)",
   "main": "index.js",
   "type": "module",
   "bin": {
@@ -16,6 +16,9 @@
     "huggingface",
     "stable-diffusion",
     "flux",
+    "logo-design",
+    "logo-generator",
+    "brand-identity",
     "ai",
     "model-context-protocol"
   ],

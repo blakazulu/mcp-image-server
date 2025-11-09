@@ -15,6 +15,7 @@ on standby, ready to create custom images whenever you need them.
 ### Perfect For:
 
 - 🖼️ Creating unique artwork for projects
+- 🎯 **Generating professional logos for brands and businesses**
 - 📱 Designing social media content
 - 💻 Mockup UI/UX designs for websites, mobile apps, and dashboards
 - 🎮 Generating game assets or concept art
@@ -84,6 +85,13 @@ Just chat with Claude naturally! Here are some examples:
 - *"Generate an e-commerce product page UI design"*
 - *"Make a dark mode settings screen for an iOS app"*
 
+### Logo Design Examples:
+
+- *"Create a minimalist logo for a tech startup, geometric shapes, blue and white"*
+- *"Generate a professional logo of a mountain peak, modern style, navy and gold"*
+- *"Design a colorful logo for a coffee shop, warm colors, friendly vibe"*
+- *"Make a flat design logo for a fitness app, bold and energetic"*
+
 ### Choose Different Styles:
 
 - *"Create a watercolor painting of a garden"*
@@ -117,6 +125,7 @@ Want a specific quality level? Just ask Claude naturally! No code needed.
 | Quality Level            | How to Ask                                         | Generation Time | Best For                                           |
 |--------------------------|----------------------------------------------------|-----------------|----------------------------------------------------|
 | 🏆 **Highest Quality**   | "using FLUX", "highest quality", "best quality"    | 30-60 seconds   | Professional work, detailed artwork, photorealism  |
+| 🎯 **Logo Design**       | "logo for...", "brand logo", "company logo"        | 20-40 seconds   | Professional logos, minimalist designs, brand identity |
 | 📱 **UI/UX Design**      | "UI design", "mobile app screen", "website layout" | 15-30 seconds   | App interfaces, website mockups, dashboard designs |
 | ⚡ **Balanced** (default) | Just describe what you want                        | 15-30 seconds   | General use, great quality                         |
 | 🚀 **Fast**              | "quick image", "fast", "draft"                     | 10-20 seconds   | Iterations, concept art                            |
@@ -125,14 +134,46 @@ Want a specific quality level? Just ask Claude naturally! No code needed.
 **Examples:**
 
 - *"Generate a portrait using FLUX.1"* → Highest quality
+- *"Create a logo for my tech company"* → Logo design model
+- *"Design a minimalist brand logo with geometric shapes"* → Logo design model
 - *"Create a mobile app login screen UI design"* → UI/UX model
 - *"Design a modern dashboard layout for an analytics website"* → UI/UX model
 - *"Quick sketch of a coffee shop logo"* → Fast model
 - *"Create a sunset over mountains"* → Default (balanced)
 - *"Make the fastest possible image of a cat"* → Fastest model
 
-**Pro Tip:** Start with default for most images. Use FLUX when you need professional quality. Use the UI design model
-for app/website mockups. Use fast models when iterating on ideas.
+**Pro Tip:** Start with default for most images. Use FLUX when you need professional quality. Use logo design models for
+brand identity work. Use the UI design model for app/website mockups. Use fast models when iterating on ideas.
+
+### Logo Design Pro Tips
+
+For best logo results, try these techniques:
+
+1. **Start your prompt with "a logo of..."**
+   - ✅ "a logo of a mountain peak, minimalist style"
+   - ❌ "mountain peak logo design"
+
+2. **Specify the style clearly**
+   - Use keywords like: `minimalist`, `flat design`, `geometric`, `modern`, `vintage`, `abstract`
+   - Add color preferences: `monochrome`, `black and white`, `colorful`, `blue and gold`
+
+3. **Keep it simple**
+   - ✅ "a logo of a coffee cup, simple, minimalist, warm brown tones"
+   - ❌ "a logo with a coffee cup, steam, beans, shop counter, people drinking..."
+
+4. **Use negative prompts effectively**
+   - Tell Claude what to avoid: "no text", "no gradients", "no photorealistic details", "no complex backgrounds"
+
+5. **Recommended dimensions**
+   - Square format works best: 1024x1024 or 512x512
+   - Claude will automatically use optimal dimensions for logo models
+
+**Example Logo Prompts:**
+
+- *"a logo of a phoenix bird, geometric style, minimalist, orange and blue colors, flat design"*
+- *"a logo of intertwined letters MT, modern tech company, sleek, black and white"*
+- *"a logo of a tree, circular shape, nature brand, green tones, simple and clean"*
+- *"a logo of a rocket, startup company, bold, minimalist, navy blue"*
 
 ---
 
@@ -285,6 +326,12 @@ Here are some real prompts and what they create:
 **Prompt:** *"Cute cartoon dinosaur wearing a chef hat, cooking pancakes, colorful, children's book illustration style"*
 → Makes a friendly, kid-appropriate illustration
 
+**Prompt:** *"a logo of an eagle head, geometric shapes, minimalist, black and white, bold lines, professional"*
+→ Creates a clean, professional brand logo
+
+**Prompt:** *"a logo of interlocking hexagons, tech startup, modern, gradient blue to purple, flat design"*
+→ Generates a modern tech company logo
+
 ---
 
 ## 🔧 For Developers
@@ -333,11 +380,24 @@ Cursor, VSCode, and environment variables.
 
 ### Available Models
 
-- `stabilityai/stable-diffusion-xl-base-1.0` (default)
-- `black-forest-labs/FLUX.1-dev` (highest quality)
-- `ayrisdev/mobile-ui-design` (UI/UX design)
-- `stabilityai/stable-diffusion-2-1` (fast)
-- `runwayml/stable-diffusion-v1-5` (fastest)
+**General Purpose:**
+- `stabilityai/stable-diffusion-xl-base-1.0` (default) — Balanced quality and speed
+- `black-forest-labs/FLUX.1-dev` (highest quality) — Professional artwork
+- `stabilityai/stable-diffusion-2-1` (fast) — Quick iterations
+- `runwayml/stable-diffusion-v1-5` (fastest) — Rapid testing
+
+**Specialized Models:**
+- `ayrisdev/mobile-ui-design` — UI/UX design mockups
+- `Shakker-Labs/FLUX.1-dev-LoRA-Logo-Design` — Professional logo design (FLUX-based)
+- `artificialguybr/LogoRedmond-LogoLoraForSDXL-V2` — Versatile logo generation with style control
+- `iamkaikai/amazing-logos-v2` — Minimalist and colored logos
+- `nicky007/stable-diffusion-logo-fine-tuned` — Logo-optimized Stable Diffusion
+
+**Logo Model Features:**
+- **Shakker-Labs/FLUX.1-dev-LoRA-Logo-Design**: Best for minimalist logos with text elements
+- **LogoRedmond V2**: Use tags like `detailed`, `minimalist`, `colorful`, `black and white` to control style
+- **amazing-logos-v2**: Excellent for abstract and minimalist colored logos
+- **stable-diffusion-logo-fine-tuned**: Fast logo generation, trained on 1000+ logo samples
 
 ### Local Development
 

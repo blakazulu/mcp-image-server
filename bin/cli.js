@@ -69,7 +69,11 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
                 'stabilityai/stable-diffusion-xl-base-1.0',
                 'stabilityai/stable-diffusion-2-1',
                 'runwayml/stable-diffusion-v1-5',
-                'ayrisdev/mobile-ui-design'
+                'ayrisdev/mobile-ui-design',
+                'Shakker-Labs/FLUX.1-dev-LoRA-Logo-Design',
+                'artificialguybr/LogoRedmond-LogoLoraForSDXL-V2',
+                'iamkaikai/amazing-logos-v2',
+                'nicky007/stable-diffusion-logo-fine-tuned'
               ],
               default: 'stabilityai/stable-diffusion-xl-base-1.0',
             },
