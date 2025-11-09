@@ -108,7 +108,7 @@ Just chat with Claude naturally! Here are some examples:
     - "golden hour lighting", "moody and dark", "bright and cheerful"
 
 4. **Tell it what NOT to include**
-    - *"Create a beach scene, but avoid people and buildings"*
+    - *"Create a beach scene, but avoid people and buildings"* 
 
 ### Choosing Your Model
 
