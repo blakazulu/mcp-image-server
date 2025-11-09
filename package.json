@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "bin": {
-    "mcp-hf-images": "./bin/cli.js"
+    "mcp-hf-images": "bin/cli.js"
   },
   "scripts": {
     "start": "node bin/cli.js"
@@ -23,7 +23,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/blakazulu/mcp-image-server.git"
+    "url": "git+https://github.com/blakazulu/mcp-image-server.git"
   },
   "dependencies": {
     "@huggingface/inference": "^4.13.2",
