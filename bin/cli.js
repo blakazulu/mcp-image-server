@@ -4,6 +4,10 @@ import { Server } from '@modelcontextprotocol/sdk/server/index.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import { ListToolsRequestSchema, CallToolRequestSchema } from '@modelcontextprotocol/sdk/types.js';
 import { HfInference } from '@huggingface/inference';
+import { writeFile, mkdir } from 'fs/promises';
+import { join } from 'path';
+import { tmpdir } from 'os';
+import { randomBytes } from 'crypto';
 
 // Parse command-line arguments
 const args = process.argv.slice(2);
@@ -115,25 +119,38 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
       }
     });
 
-    // Convert blob to base64
+    // Convert blob to buffer
     const arrayBuffer = await imageBlob.arrayBuffer();
     const buffer = Buffer.from(arrayBuffer);
-    const base64Image = buffer.toString('base64');
     const mimeType = imageBlob.type || 'image/png';
+
+    // Determine file extension from mime type
+    const extension = mimeType.includes('png') ? 'png' : 'jpg';
+
+    // Create temp directory for images if it doesn't exist
+    const tempDir = join(tmpdir(), 'mcp-images');
+    await mkdir(tempDir, { recursive: true });
+
+    // Generate unique filename
+    const filename = `generated-${randomBytes(8).toString('hex')}.${extension}`;
+    const filePath = join(tempDir, filename);
+
+    // Save image to disk
+    await writeFile(filePath, buffer);
 
     return {
       content: [
         {
-          type: 'resource',
-          resource: {
-            uri: `data:${mimeType};base64,${base64Image}`,
-            mimeType: mimeType,
-            text: `Generated image using ${model} for prompt: ${prompt}`,
-          },
+          type: 'text',
+          text: `Successfully generated image using ${model}\nPrompt: "${prompt}"\n\nImage saved to: ${filePath}\n\nYou can view this image by reading the file path above.`,
         },
         {
-          type: 'text',
-          text: `Successfully generated image using ${model}\nPrompt: "${prompt}"`,
+          type: 'resource',
+          resource: {
+            uri: `file://${filePath}`,
+            mimeType: mimeType,
+            text: `Generated image for prompt: ${prompt}`,
+          },
         },
       ],
     };

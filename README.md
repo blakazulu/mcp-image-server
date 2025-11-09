@@ -65,6 +65,8 @@ claude mcp add image-generator -- npx -y mcp-hf-images --api-key YOUR_TOKEN_HERE
 
 Just chat with Claude naturally! Here are some examples:
 
+> **Note:** Generated images are automatically saved to your system's temporary directory and Claude will display them for you. This ensures the image generation works smoothly regardless of image size.
+
 ### Simple Examples:
 
 - *"Create an image of a sunset over mountains"*
