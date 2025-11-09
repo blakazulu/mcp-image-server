@@ -1,27 +1,35 @@
 {
   "name": "mcp-image-generator",
   "version": "1.0.0",
-  "description": "MCP server for generating images from text prompts using Google Imagen",
+  "description": "MCP server for generating images from text prompts using HuggingFace (Stable Diffusion, FLUX, etc.)",
   "main": "index.js",
   "type": "module",
+  "bin": {
+    "mcp-image-generator": "./bin/cli.js"
+  },
   "scripts": {
-    "dev": "netlify dev",
-    "build": "echo 'No build step needed'",
-    "deploy": "netlify deploy --prod"
+    "start": "node bin/cli.js"
   },
   "keywords": [
     "mcp",
     "image-generation",
-    "google-imagen",
-    "ai"
+    "huggingface",
+    "stable-diffusion",
+    "flux",
+    "ai",
+    "model-context-protocol"
   ],
   "author": "",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/blakazulu/mcp-image-server.git"
+  },
   "dependencies": {
-    "@google/generative-ai": "^0.21.0",
+    "@huggingface/inference": "^4.13.2",
     "@modelcontextprotocol/sdk": "^1.0.4"
   },
-  "devDependencies": {
-    "netlify-cli": "^17.36.4"
+  "engines": {
+    "node": ">=18.0.0"
   }
 }

@@ -5,7 +5,15 @@
       "mcp__netlify__netlify-project-services-reader",
       "mcp__netlify__netlify-deploy-services-reader",
       "Bash(npm install)",
-      "Bash(git log:*)"
+      "Bash(git log:*)",
+      "WebFetch(domain:mcpservers.org)",
+      "Bash(node bin/cli.js:*)",
+      "Bash(node test-client.mjs:*)",
+      "Bash(node check-models.mjs:*)",
+      "WebSearch",
+      "WebFetch(domain:ai.google.dev)",
+      "Bash(npm uninstall:*)",
+      "Bash(npm install:*)"
     ],
     "deny": [],
     "ask": []

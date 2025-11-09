@@ -38,23 +38,39 @@
 <body>
     <h1>Image Generator MCP Server</h1>
 
-    <p>This is an MCP (Model Context Protocol) server that generates images from text prompts using Google Imagen.</p>
+    <p>This is an MCP (Model Context Protocol) server that generates images from text prompts using HuggingFace models (Stable Diffusion, FLUX, and more).</p>
+
+    <p><strong style="color: #4CAF50;">✨ FREE TIER AVAILABLE!</strong></p>
 
     <div class="info-box">
-        <strong>Installation:</strong>
-        <pre><code>claude mcp add image-generator https://image-generator-mcp.netlify.app/mcp</code></pre>
+        <strong>Quick Installation:</strong>
+        <pre><code>claude mcp add image-generator -- npx -y mcp-image-generator --api-key YOUR_HF_TOKEN</code></pre>
     </div>
 
-    <h2>Configuration</h2>
-    <p>You'll need to configure your Google API key to use this service. Get your API key from the <a href="https://aistudio.google.com/app/apikey" target="_blank">Google AI Studio</a>.</p>
+    <h2>Get Your FREE HuggingFace Token</h2>
+    <ol>
+        <li>Visit <a href="https://huggingface.co/settings/tokens" target="_blank">HuggingFace Token Settings</a></li>
+        <li>Click "New token"</li>
+        <li>Give it a name (e.g., "MCP Image Generator")</li>
+        <li>Select "Read" access</li>
+        <li>Click "Generate token"</li>
+        <li>Copy your token and use it in the installation command above</li>
+    </ol>
 
     <h2>Available Tools</h2>
     <ul>
         <li><strong>generate_image</strong> - Generate an image from a text prompt
             <ul>
                 <li><code>prompt</code> (required): The text description of the image to generate</li>
+                <li><code>model</code> (optional): Choose from:
+                    <ul>
+                        <li>stabilityai/stable-diffusion-xl-base-1.0 (default)</li>
+                        <li>black-forest-labs/FLUX.1-dev (state-of-the-art)</li>
+                        <li>stabilityai/stable-diffusion-2-1</li>
+                        <li>runwayml/stable-diffusion-v1-5</li>
+                    </ul>
+                </li>
                 <li><code>negativePrompt</code> (optional): What to avoid in the generated image</li>
-                <li><code>aspectRatio</code> (optional): Image aspect ratio (1:1, 16:9, 9:16, 4:3, 3:4)</li>
             </ul>
         </li>
     </ul>
@@ -70,10 +86,19 @@
     <h2>Error Handling</h2>
     <p>The server provides detailed error messages for common issues:</p>
     <ul>
-        <li>Invalid API key</li>
-        <li>API quota exceeded</li>
-        <li>Safety filters triggered</li>
+        <li>Invalid HuggingFace token</li>
+        <li>Rate limit exceeded</li>
+        <li>Free tier quota exceeded</li>
+        <li>Model not found</li>
         <li>General generation errors</li>
+    </ul>
+
+    <h2>Why HuggingFace?</h2>
+    <ul>
+        <li>🆓 <strong>Free tier available</strong> - no credit card required!</li>
+        <li>⚡ Fast image generation</li>
+        <li>🎨 Multiple state-of-the-art models to choose from</li>
+        <li>🌍 Open source and community-driven</li>
     </ul>
 </body>
 </html>

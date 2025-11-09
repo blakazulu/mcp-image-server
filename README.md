@@ -1,33 +1,47 @@
 # Image Generator MCP Server
 
-A Model Context Protocol (MCP) server that generates images from text prompts using Google Imagen.
+A Model Context Protocol (MCP) server that generates images from text prompts using HuggingFace models (Stable Diffusion, FLUX, and more).
 
 ## Features
 
 - 🎨 Generate images from text descriptions
-- 🚀 Easy one-line installation
-- 🔑 Secure API key configuration
-- ⚡ Hosted on Netlify for reliability
+- 🚀 Simple one-line installation via npx
+- 🆓 **FREE tier available** with HuggingFace
+- 🔑 Easy API token configuration
 - 🛡️ Detailed error messages
-- 🎯 Support for aspect ratios and negative prompts
+- 🎯 Multiple models: Stable Diffusion XL, FLUX.1, and more
+- ⚡ Support for negative prompts
 
 ## Installation
+
+### Quick Start
 
 Install the MCP server with a single command:
 
 ```bash
-claude mcp add image-generator https://image-generator-mcp.netlify.app/mcp
+claude mcp add image-generator -- npx -y mcp-image-generator --api-key YOUR_HF_TOKEN
 ```
 
-## Configuration
+Replace `YOUR_HF_TOKEN` with your HuggingFace token.
 
-### Get Your Google API Key
+### Get Your HuggingFace Token (FREE!)
 
-1. Visit [Google AI Studio](https://aistudio.google.com/app/apikey)
-2. Create a new API key
-3. Configure it in your MCP settings
+1. Visit [HuggingFace Token Settings](https://huggingface.co/settings/tokens)
+2. Click "New token"
+3. Give it a name (e.g., "MCP Image Generator")
+4. Select "Read" access
+5. Click "Generate token"
+6. Copy your token and use it in the installation command above
 
-The server expects your API key to be passed via the `x-google-api-key` header.
+### Manual Configuration
+
+If you prefer to configure later or use environment variables:
+
+```bash
+claude mcp add image-generator -- npx -y mcp-image-generator
+```
+
+Then set the `HF_TOKEN` environment variable in your MCP configuration.
 
 ## Usage
 
@@ -45,63 +59,97 @@ Once installed, you can use natural language prompts in Claude to generate image
 The `generate_image` tool supports:
 
 - **prompt** (required): The text description of your desired image
+- **model** (optional): Choose from:
+  - `stabilityai/stable-diffusion-xl-base-1.0` (default, best quality)
+  - `black-forest-labs/FLUX.1-dev` (state-of-the-art)
+  - `stabilityai/stable-diffusion-2-1`
+  - `runwayml/stable-diffusion-v1-5`
 - **negativePrompt** (optional): Specify what to avoid in the image
-- **aspectRatio** (optional): Choose from 1:1, 16:9, 9:16, 4:3, or 3:4
+
+### Example with Model Selection
+
+"Generate an image of a sunset over mountains using FLUX.1"
+
+## Available Models
+
+| Model | Description | Best For |
+|-------|-------------|----------|
+| **Stable Diffusion XL** | High-quality, reliable | General purpose (default) |
+| **FLUX.1-dev** | State-of-the-art quality | Best results, slower |
+| **Stable Diffusion 2.1** | Fast, good quality | Quick generations |
+| **Stable Diffusion 1.5** | Fastest, lighter | Speed over quality |
 
 ## Error Handling
 
 The server provides clear error messages for:
 
-- ❌ Invalid API key
-- ⚠️ API quota exceeded
-- 🛡️ Safety filter violations
-- 🔧 General generation errors
+- ❌ Invalid HuggingFace token
+- ⚠️ Rate limit exceeded
+- 💳 Free tier quota exceeded
+- 🔧 Model not found or accessible
+- 🛡️ General generation errors
 
 ## Technology Stack
 
 - **MCP SDK**: [@modelcontextprotocol/sdk](https://github.com/modelcontextprotocol/sdk)
-- **Image Generation**: Google Imagen 3.0
-- **Hosting**: Netlify Functions
-- **Runtime**: Node.js
+- **Image Generation**: HuggingFace Inference API
+- **Models**: Stable Diffusion XL, FLUX.1, and more
+- **Transport**: stdio (standard input/output)
+- **Runtime**: Node.js 18+
+
+## Requirements
+
+- Node.js >= 18.0.0
+- HuggingFace account (FREE!) with API token
 
 ## Local Development
 
 ```bash
+# Clone the repository
+git clone https://github.com/blakazulu/mcp-image-server.git
+cd mcp-image-server
+
 # Install dependencies
 npm install
 
-# Run locally
-npm run dev
-
-# Deploy to Netlify
-npm run deploy
+# Run the server locally
+node bin/cli.js --api-key YOUR_HF_TOKEN
 ```
 
-## API Documentation
+## Configuration Options
 
-### Endpoint
+The server accepts the following configuration:
 
-```
-POST https://image-generator-mcp.netlify.app/mcp
-```
+- `--api-key YOUR_TOKEN`: Provide your HuggingFace token via command line
+- `HF_TOKEN` environment variable: Alternative way to set your token
+- `HUGGING_FACE_TOKEN` environment variable: Also supported
 
-### Headers
+### Example MCP Configuration
 
-```
-Content-Type: application/json
-x-google-api-key: YOUR_GOOGLE_API_KEY
-```
-
-### Request Body
+For other MCP clients (Cursor, VSCode, etc.), you can configure manually:
 
 ```json
 {
-  "method": "tools/call",
-  "params": {
-    "name": "generate_image",
-    "arguments": {
-      "prompt": "A beautiful sunset over mountains",
-      "aspectRatio": "16:9"
+  "mcpServers": {
+    "image-generator": {
+      "command": "npx",
+      "args": ["-y", "mcp-image-generator", "--api-key", "YOUR_HF_TOKEN"]
+    }
+  }
+}
+```
+
+### With Environment Variable
+
+```json
+{
+  "mcpServers": {
+    "image-generator": {
+      "command": "npx",
+      "args": ["-y", "mcp-image-generator"],
+      "env": {
+        "HF_TOKEN": "YOUR_HF_TOKEN"
+      }
     }
   }
 }
