@@ -55,7 +55,7 @@ node bin/cli.js --api-key YOUR_API_KEY  # Run locally
 
 Users can install this MCP server with:
 ```bash
-claude mcp add image-generator -- npx -y mcp-image-generator --api-key YOUR_HF_TOKEN
+claude mcp add image-generator -- npx -y mcp-hf-images --api-key YOUR_HF_TOKEN
 ```
 
 Get a free token from: https://huggingface.co/settings/tokens

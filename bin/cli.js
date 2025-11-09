@@ -25,8 +25,8 @@ if (!apiKey) {
   console.error('Error: HuggingFace API token is required.');
   console.error('Provide it via --api-key flag or HF_TOKEN environment variable.');
   console.error('\nUsage:');
-  console.error('  npx mcp-image-generator --api-key YOUR_HF_TOKEN');
-  console.error('  HF_TOKEN=YOUR_HF_TOKEN npx mcp-image-generator');
+  console.error('  npx mcp-hf-images --api-key YOUR_HF_TOKEN');
+  console.error('  HF_TOKEN=YOUR_HF_TOKEN npx mcp-hf-images');
   console.error('\nGet your token from: https://huggingface.co/settings/tokens');
   process.exit(1);
 }

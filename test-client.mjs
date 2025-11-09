@@ -84,8 +84,8 @@ async function testImageGeneration() {
     console.error('Full error:', error);
   } finally {
     await client.close();
-    serverProcess.kill();
     console.log('\nTest complete!');
+    process.exit(0);
   }
 }
 

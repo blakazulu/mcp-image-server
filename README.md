@@ -1,168 +1,357 @@
-# Image Generator MCP Server
+# 🎨 AI Image Generator for Claude
 
-A Model Context Protocol (MCP) server that generates images from text prompts using HuggingFace models (Stable Diffusion, FLUX, and more).
+**Turn your words into images — completely free!**
 
-## Features
+Chat with Claude and ask it to create any image you can imagine. No design skills needed, no complicated software. Just
+describe what you want, and watch it come to life.
 
-- 🎨 Generate images from text descriptions
-- 🚀 Simple one-line installation via npx
-- 🆓 **FREE tier available** with HuggingFace
-- 🔑 Easy API token configuration
-- 🛡️ Detailed error messages
-- 🎯 Multiple models: Stable Diffusion XL, FLUX.1, and more
-- ⚡ Support for negative prompts
+---
 
-## Installation
+## ✨ What This Does
 
-### Quick Start
+This tool lets you generate AI images directly in your Claude conversations. Think of it as having a professional artist
+on standby, ready to create custom images whenever you need them.
 
-Install the MCP server with a single command:
+### Perfect For:
 
-```bash
-claude mcp add image-generator -- npx -y mcp-hf-images --api-key YOUR_HF_TOKEN
-```
+- 🖼️ Creating unique artwork for projects
+- 📱 Designing social media content
+- 🎮 Generating game assets or concept art
+- 📚 Illustrating stories or presentations
+- 🎨 Exploring creative ideas visually
+- 🏠 Visualizing interior design concepts
 
-Replace `YOUR_HF_TOKEN` with your HuggingFace token.
+### Why You'll Love It:
 
-### Get Your HuggingFace Token (FREE!)
+- ✅ **100% Free** — No credit card, no subscriptions
+- ✅ **No Installation** — Works right in your Claude chat
+- ✅ **Super Simple** — Just talk to Claude naturally
+- ✅ **High Quality** — Powered by professional AI models (Stable Diffusion, FLUX)
+- ✅ **Fast** — Images in seconds, not hours
 
-1. Visit [HuggingFace Token Settings](https://huggingface.co/settings/tokens)
-2. Click "New token"
-3. Give it a name (e.g., "MCP Image Generator")
-4. Select "Read" access
-5. Click "Generate token"
-6. Copy your token and use it in the installation command above
+---
 
-### Manual Configuration
+## 🚀 Quick Setup (2 Minutes)
 
-If you prefer to configure later or use environment variables:
+### Step 1: Get Your Free Access Token
 
-```bash
-claude mcp add image-generator -- npx -y mcp-hf-images
-```
+1. Go to [HuggingFace.co](https://huggingface.co/join) and create a free account
+2. Visit [your token settings](https://huggingface.co/settings/tokens)
+3. Click the **"New token"** button
+4. Name it "Claude Image Generator"
+5. Select **"Read"** permission
+6. Click **"Generate token"** and copy it
 
-Then set the `HF_TOKEN` environment variable in your MCP configuration.
+### Step 2: Install in Claude
 
-## Usage
+**IMPORTANT:** Install with your API key included in the command. This is the easiest way to get started!
 
-Once installed, you can use natural language prompts in Claude to generate images:
-
-### Example Prompts
-
-- "Generate an image of a sunset over mountains"
-- "Create an image of a futuristic city with flying cars"
-- "Make an image of a cute robot playing with a cat in a garden"
-- "Generate a portrait of a wise old wizard with a long beard"
-
-### Advanced Options
-
-The `generate_image` tool supports:
-
-- **prompt** (required): The text description of your desired image
-- **model** (optional): Choose from:
-  - `stabilityai/stable-diffusion-xl-base-1.0` (default, best quality)
-  - `black-forest-labs/FLUX.1-dev` (state-of-the-art)
-  - `stabilityai/stable-diffusion-2-1`
-  - `runwayml/stable-diffusion-v1-5`
-- **negativePrompt** (optional): Specify what to avoid in the image
-
-### Example with Model Selection
-
-"Generate an image of a sunset over mountains using FLUX.1"
-
-## Available Models
-
-| Model | Description | Best For |
-|-------|-------------|----------|
-| **Stable Diffusion XL** | High-quality, reliable | General purpose (default) |
-| **FLUX.1-dev** | State-of-the-art quality | Best results, slower |
-| **Stable Diffusion 2.1** | Fast, good quality | Quick generations |
-| **Stable Diffusion 1.5** | Fastest, lighter | Speed over quality |
-
-## Error Handling
-
-The server provides clear error messages for:
-
-- ❌ Invalid HuggingFace token
-- ⚠️ Rate limit exceeded
-- 💳 Free tier quota exceeded
-- 🔧 Model not found or accessible
-- 🛡️ General generation errors
-
-## Technology Stack
-
-- **MCP SDK**: [@modelcontextprotocol/sdk](https://github.com/modelcontextprotocol/sdk)
-- **Image Generation**: HuggingFace Inference API
-- **Models**: Stable Diffusion XL, FLUX.1, and more
-- **Transport**: stdio (standard input/output)
-- **Runtime**: Node.js 18+
-
-## Requirements
-
-- Node.js >= 18.0.0
-- HuggingFace account (FREE!) with API token
-
-## Local Development
+Copy and paste this into your terminal (replace `YOUR_TOKEN_HERE` with the token you just copied):
 
 ```bash
-# Clone the repository
-git clone https://github.com/blakazulu/mcp-image-server.git
-cd mcp-image-server
-
-# Install dependencies
-npm install
-
-# Run the server locally
-node bin/cli.js --api-key YOUR_HF_TOKEN
+claude mcp add image-generator -- npx -y mcp-hf-images --api-key YOUR_TOKEN_HERE
 ```
 
-## Configuration Options
+**That's it!** You're ready to create images 🎉
 
-The server accepts the following configuration:
+> **Need to change your token later?** (For example, upgrading from free to PRO tier?)
+> See [Manual Configuration](#-manual-configuration) below.
 
-- `--api-key YOUR_TOKEN`: Provide your HuggingFace token via command line
-- `HF_TOKEN` environment variable: Alternative way to set your token
-- `HUGGING_FACE_TOKEN` environment variable: Also supported
+---
 
-### Example MCP Configuration
+## 💬 How to Use It
 
-For other MCP clients (Cursor, VSCode, etc.), you can configure manually:
+Just chat with Claude naturally! Here are some examples:
+
+### Simple Examples:
+
+- *"Create an image of a sunset over mountains"*
+- *"Generate a cute robot cat playing with yarn"*
+- *"Make a futuristic city with flying cars"*
+- *"Draw a cozy coffee shop on a rainy day"*
+
+### Get More Specific:
+
+- *"Create a professional headshot of a friendly business woman, office background, natural lighting"*
+- *"Generate a logo design with a geometric phoenix, minimalist style, blue and orange colors"*
+- *"Make a fantasy landscape with floating islands and waterfalls at sunset"*
+
+### Choose Different Styles:
+
+- *"Create a watercolor painting of a garden"*
+- *"Generate a photorealistic image of a sports car"*
+- *"Make a cartoon illustration of a superhero"*
+- *"Draw an anime-style character portrait"*
+
+---
+
+## 🎯 Pro Tips
+
+### Get Better Results:
+
+1. **Be specific** — More details = better images
+    - ❌ "a dog"
+    - ✅ "a golden retriever puppy playing in autumn leaves, soft sunlight"
+
+2. **Describe the style** you want
+    - "photorealistic", "cartoon", "watercolor", "3D render", "vintage photo"
+
+3. **Set the mood** with lighting and atmosphere
+    - "golden hour lighting", "moody and dark", "bright and cheerful"
+
+4. **Tell it what NOT to include**
+    - *"Create a beach scene, but avoid people and buildings"*
+
+### Choosing Your Model
+
+Want a specific quality level? Just ask Claude naturally! No code needed.
+
+| Quality Level            | How to Ask                                      | Generation Time | Best For                                          |
+|--------------------------|-------------------------------------------------|-----------------|---------------------------------------------------|
+| 🏆 **Highest Quality**   | "using FLUX", "highest quality", "best quality" | 30-60 seconds   | Professional work, detailed artwork, photorealism |
+| ⚡ **Balanced** (default) | Just describe what you want                     | 15-30 seconds   | General use, great quality                        |
+| 🚀 **Fast**              | "quick image", "fast", "draft"                  | 10-20 seconds   | Iterations, concept art                           |
+| 💨 **Fastest**           | "fastest", "very quick", "rough sketch"         | 5-10 seconds    | Rapid testing, simple images                      |
+
+**Examples:**
+
+- *"Generate a portrait using FLUX.1"* → Highest quality
+- *"Quick sketch of a coffee shop logo"* → Fast model
+- *"Create a sunset over mountains"* → Default (balanced)
+- *"Make the fastest possible image of a cat"* → Fastest model
+
+**Pro Tip:** Start with default for most images. Use FLUX when you need professional quality. Use fast models when
+iterating on ideas.
+
+---
+
+## 🔧 Manual Configuration
+
+Need to change your API token? Upgrading from free to PRO tier? Here's how to manually configure the image generator.
+
+### For Claude Desktop
+
+1. Open your MCP settings file:
+    - **Mac:** `~/Library/Application Support/Claude/claude_desktop_config.json`
+    - **Windows:** `%APPDATA%\Claude\claude_desktop_config.json`
+    - **Linux:** `~/.config/Claude/claude_desktop_config.json`
+
+2. Add or update the configuration:
 
 ```json
 {
   "mcpServers": {
     "image-generator": {
       "command": "npx",
-      "args": ["-y", "mcp-hf-images", "--api-key", "YOUR_HF_TOKEN"]
+      "args": [
+        "-y",
+        "mcp-hf-images",
+        "--api-key",
+        "YOUR_NEW_TOKEN_HERE"
+      ]
     }
   }
 }
 ```
 
-### With Environment Variable
+3. Save the file and restart Claude Desktop
+
+### For Cursor / VSCode
+
+Add this to your MCP settings file (usually `.cursor/config.json` or `.vscode/mcp.json`):
 
 ```json
 {
   "mcpServers": {
     "image-generator": {
       "command": "npx",
-      "args": ["-y", "mcp-hf-images"],
+      "args": [
+        "-y",
+        "mcp-hf-images",
+        "--api-key",
+        "YOUR_HF_TOKEN"
+      ]
+    }
+  }
+}
+```
+
+### Using Environment Variables (Alternative)
+
+Instead of putting your token in the config file, you can use environment variables:
+
+**Config file:**
+
+```json
+{
+  "mcpServers": {
+    "image-generator": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-hf-images"
+      ],
       "env": {
-        "HF_TOKEN": "YOUR_HF_TOKEN"
+        "HF_TOKEN": "YOUR_TOKEN_HERE"
       }
     }
   }
 }
 ```
 
-## Contributing
+**Or set it system-wide:**
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+- **Mac/Linux:** Add to `~/.bashrc` or `~/.zshrc`:
+  ```bash
+  export HF_TOKEN="your_token_here"
+  ```
 
-## License
+- **Windows:** Set via Command Prompt:
+  ```cmd
+  setx HF_TOKEN "your_token_here"
+  ```
 
-MIT
+### Common Use Cases
 
-## Support
+**Upgrading from Free to PRO:**
 
-For issues or questions, please open an issue on the [GitHub repository](https://github.com/blakazulu/mcp-image-server). 
+1. Get your new PRO token from [HuggingFace settings](https://huggingface.co/settings/tokens)
+2. Update your config file with the new token (see above)
+3. Restart your MCP client
+
+**Switching Between Multiple Tokens:**
+
+- Use different config names for different projects
+- Or swap the token in your environment variables
+
+**Token Expired or Invalid:**
+
+- Generate a new token on HuggingFace
+- Update your config file
+- Restart your client
+
+---
+
+## ❓ Troubleshooting
+
+**"Invalid token" error?**
+
+- Make sure you copied your entire HuggingFace token correctly
+- Check that you selected "Read" permission when creating it
+
+**"Rate limit exceeded"?**
+
+- Free tier has limits — just wait a few minutes
+- You can [upgrade to HuggingFace PRO](https://huggingface.co/pricing) for unlimited access ($9/month)
+
+**Images not what you expected?**
+
+- Try being more detailed in your description
+- Specify the artistic style you want
+- Mention lighting, colors, and mood
+- Try adding "high quality" or "detailed" to your prompt
+
+**Need help?**
+
+- [Open an issue](https://github.com/blakazulu/mcp-image-server/issues) on GitHub
+- Check [HuggingFace's status page](https://status.huggingface.co) if the service seems down
+
+---
+
+## 🎓 Examples Gallery
+
+Here are some real prompts and what they create:
+
+**Prompt:** *"A serene Japanese garden with cherry blossoms, koi pond, traditional wooden bridge, soft morning light"*
+→ Creates a peaceful, detailed garden scene
+
+**Prompt:** *"Cyberpunk street scene at night, neon signs, rain-soaked streets, futuristic cars, photorealistic"*
+→ Generates a moody sci-fi cityscape
+
+**Prompt:** *"Minimalist logo design of a mountain peak, geometric shapes, navy blue and gold, professional"*
+→ Produces a clean, modern logo
+
+**Prompt:** *"Cute cartoon dinosaur wearing a chef hat, cooking pancakes, colorful, children's book illustration style"*
+→ Makes a friendly, kid-appropriate illustration
+
+---
+
+## 🔧 For Developers
+
+<details>
+<summary>Click here for technical documentation</summary>
+
+### Requirements
+
+- Node.js >= 18.0.0
+- HuggingFace account with API token
+
+### Manual Installation
+
+```bash
+npm install -g mcp-hf-images
+```
+
+### Configuration
+
+See the [Manual Configuration](#-manual-configuration) section above for detailed setup instructions for Claude Desktop,
+Cursor, VSCode, and environment variables.
+
+**Quick reference for MCP clients:**
+
+```json
+{
+  "mcpServers": {
+    "image-generator": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-hf-images",
+        "--api-key",
+        "YOUR_HF_TOKEN"
+      ]
+    }
+  }
+}
+```
+
+### Environment Variables
+
+- `HF_TOKEN` — HuggingFace API token
+- `HUGGING_FACE_TOKEN` — Alternative token variable
+
+### Available Models
+
+- `stabilityai/stable-diffusion-xl-base-1.0` (default)
+- `black-forest-labs/FLUX.1-dev` (highest quality)
+- `stabilityai/stable-diffusion-2-1` (fast)
+- `runwayml/stable-diffusion-v1-5` (fastest)
+
+### Local Development
+
+```bash
+git clone https://github.com/blakazulu/mcp-image-server.git
+cd mcp-image-server
+npm install
+node bin/cli.js --api-key YOUR_HF_TOKEN
+```
+
+### Technology Stack
+
+- MCP SDK v1.0+
+- HuggingFace Inference API
+- Stable Diffusion XL / FLUX.1
+- Node.js 18+
+
+</details>
+
+---
+
+## 📄 License
+
+MIT License — Free to use for personal and commercial projects
+
+## 🤝 Contributing
+
+Found a bug? Have an idea? [Open an issue](https://github.com/blakazulu/mcp-image-server/issues) or submit a pull
+request! 
