@@ -6,6 +6,7 @@ Chat with Claude and ask it to create any image you can imagine. No design skill
 describe what you want, and watch it come to life.
 
 ---
+![NPM Downloads](https://img.shields.io/npm/dy/mcp-hf-images?style=for-the-badge)
 
 ## ✨ What This Does
 
