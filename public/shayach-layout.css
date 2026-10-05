@@ -1,2 +1,0 @@
-html{--shayach-rail:64px;padding-right:var(--shayach-rail)!important;box-sizing:border-box!important}body{max-width:100%;box-sizing:border-box}html::after{content:"";position:fixed;right:0;top:0;bottom:0;width:var(--shayach-rail);background:#07090d;border-left:1px solid #8893a533;z-index:900;pointer-events:none}@media(max-width:640px){html{--shayach-rail:56px}}
-#nl-badge-frame{position:relative!important;display:block!important;bottom:auto!important;right:auto!important;margin-left:auto!important;max-width:100%}
